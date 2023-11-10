@@ -18,12 +18,12 @@ end
 
 print("A game of Tic Tac Toe\n")
 
+print_board()
+
 print("Single or two player? [1/2]")
 local single_or_two = io.read()
 print()
 single_or_two = tonumber(single_or_two)
-
-print_board()
 
 local function tic_tac_toe()
 	if single_or_two == 1 then
@@ -33,9 +33,7 @@ local function tic_tac_toe()
 			local user_input = io.read()
 			user_input = tonumber(user_input)
 			for options = 1, #positions, 1 do
-				if options == 9 and user_input > 9 then
-					print("Invalid Input\n")
-				elseif user_input == options and positions[options] == " " then
+				if user_input == options and positions[options] == " " then
 					positions[options] = "X"
 					moves = moves + 1
 					turn = false
@@ -43,9 +41,10 @@ local function tic_tac_toe()
 					print("O's turn\n")
 				elseif user_input == options and positions[options] ~= " " then
 					print("That position is already taken, pick again\n")
-				else
-					return
 				end
+			end
+			if type(user_input) ~= "number" then
+				print("That's an invalid input\n")
 			end
 		elseif turn == false then
 			local computer_choice = math.random(1, #positions)
@@ -66,18 +65,18 @@ local function tic_tac_toe()
 			local user_input = io.read()
 			user_input = tonumber(user_input)
 			for options = 1, #positions, 1 do
-				if options == 9 and user_input > 9 then
-					print("Invalid Input\n")
-				elseif user_input == options and positions[options] == " " then
+				if user_input == options and positions[options] == " " then
 					positions[options] = "X"
 					moves = moves + 1
 					print_board()
+
 					turn = false
 				elseif user_input == options and positions[options] ~= " " then
 					print("That position is already taken, pick again\n")
-				else
-					return
 				end
+			end
+			if type(user_input) ~= "number" then
+				print("That's an invalid input\n")
 			end
 		elseif turn == false then
 			print("O's turn")
@@ -85,18 +84,18 @@ local function tic_tac_toe()
 			local user_input = io.read()
 			user_input = tonumber(user_input)
 			for options = 1, #positions, 1 do
-				if options == 9 and user_input > 9 then
-					print("Invalid Input\n")
-				elseif user_input == options and positions[options] == " " then
+				if user_input == options and positions[options] == " " then
 					positions[options] = "O"
 					moves = moves + 1
 					print_board()
+
 					turn = true
 				elseif user_input == options and positions[options] ~= " " then
 					print("That position is already taken, pick again\n")
-				else
-					return
 				end
+			end
+			if type(user_input) ~= "number" then
+				print("That's an invalid input\n")
 			end
 		end
 	end

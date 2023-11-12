@@ -43,7 +43,7 @@ local function tic_tac_toe()
 					print("That position is already taken, pick again\n")
 				end
 			end
-			if type(user_input) ~= "number" then
+			if type(user_input) ~= "number" or user_input < 1 or user_input > 9 then
 				print("That's an invalid input\n")
 			end
 		elseif turn == false then
@@ -69,13 +69,12 @@ local function tic_tac_toe()
 					positions[options] = "X"
 					moves = moves + 1
 					print_board()
-
 					turn = false
 				elseif user_input == options and positions[options] ~= " " then
 					print("That position is already taken, pick again\n")
 				end
 			end
-			if type(user_input) ~= "number" then
+			if type(user_input) ~= "number" or user_input < 1 or user_input > 9 then
 				print("That's an invalid input\n")
 			end
 		elseif turn == false then
@@ -94,7 +93,7 @@ local function tic_tac_toe()
 					print("That position is already taken, pick again\n")
 				end
 			end
-			if type(user_input) ~= "number" then
+			if type(user_input) ~= "number" or user_input < 1 or user_input > 9 then
 				print("That's an invalid input\n")
 			end
 		end

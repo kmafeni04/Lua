@@ -1,22 +1,22 @@
 local function game()
 	local number_of_guesses = 1
-	local correct_ans = math.random(10) -- sets the number to guess to a random number
+	local correct_ans = math.random(10)
 
 	print("Guess the number")
 
 	repeat
-		local ans_input = io.read() -- collects user input
+		local ans_input = io.read()
 		local ans = tonumber(ans_input)
-		if type(ans) ~= "number" then -- checks if answer is a number
+		if type(ans) ~= "number" then
 			print("This is not a number, try again")
 			number_of_guesses = number_of_guesses + 1
-		elseif ans > correct_ans then -- checks if answer is greater than the correct answer
+		elseif ans > correct_ans then
 			print("Your answer is greater than, try again")
 			number_of_guesses = number_of_guesses + 1
-		elseif ans < correct_ans then -- checks if answer is less than the correct answer
+		elseif ans < correct_ans then
 			print("Your answer is less than, try again")
 			number_of_guesses = number_of_guesses + 1
-		elseif ans == correct_ans then -- if answer is correct, print the total number of attempts and that the answer is correct
+		elseif ans == correct_ans then
 			print("Your answer is correct")
 			print("It took you " .. number_of_guesses .. " attempt(s)")
 		end
@@ -24,9 +24,9 @@ local function game()
 
 	print("Do you want to play again? (yes or no)")
 	local response = io.read()
-	response = response.lower(response) -- converts response to all lowercase
+	response = response.lower(response)
 
-	if response == "yes" or response == "y" then -- Restarts the function or exits
+	if response == "yes" or response == "y" then
 		game()
 	else
 		os.exit()

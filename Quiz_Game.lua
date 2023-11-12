@@ -8,18 +8,17 @@ is_playing = io.read()
 is_playing = is_playing.lower(is_playing)
 print()
 
-if is_playing ~= "yes" and is_playing ~= "y" then --Quits if answers don't match
+if is_playing ~= "yes" and is_playing ~= "y" then
 	os.exit()
 end
 
 repeat
 	print("What is your name?")
-	name = io.read() --User inputs name
+	name = io.read()
 until name ~= ""
 print()
 
-local function quiz() -- Quiz question
--- Question
+local function quiz()
 	print("What is the biggest mammal in the world?")
 	local ans = io.read()
 	ans = ans.lower(ans)
@@ -31,9 +30,7 @@ local function quiz() -- Quiz question
 		correctly_ans = correctly_ans + 1
 	end
 	total_answers = total_answers + 1
--- End of Question
 
--- Question
 	print("What is the biggest land mammal in the world?")
 	local ans = io.read()
 	ans = ans.lower(ans)
@@ -45,13 +42,12 @@ local function quiz() -- Quiz question
 		correctly_ans = correctly_ans + 1
 	end
 	total_answers = total_answers + 1
--- End of Question
 end
 
-local function sum(num1, num2) -- Sum questions
+local function sum(num1, num2)
 	repeat
 		print("What is " .. num1 .. " + " .. num2 .. "?")
-		local ans = io.read() --User inputs their answer
+		local ans = io.read()
 		local right_ans = num1 + num2
 		if ans == "" then
 			print("Answer the question")
@@ -67,7 +63,6 @@ local function sum(num1, num2) -- Sum questions
 	until ans ~= ""
 end
 
---Quiz questions
 quiz()
 sum(2, 5)
 sum(2, 10)
